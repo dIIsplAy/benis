@@ -27,6 +27,9 @@ $cars = [
         'image' => 'https://sf1.auto-moto.com/wp-content/uploads/sites/9/2016/12/ok-fiatpunto.jpg'
     ],
 
-]
+];
+
+$motDePasse = '123';
+$login = 'sam';
 
 ?>

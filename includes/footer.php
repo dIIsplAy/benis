@@ -1,3 +1,4 @@
+
 <footer class="container-fluid" style="bottom:0; position:fixed">
 <div class="jusfity-content-center">
 <ul class="row d-flex col-12 justify-content-center">
@@ -7,3 +8,5 @@
 </ul>
 </div>
 </footer>
+</body>
+</html>
