@@ -1,5 +1,4 @@
 
-<?php include 'includes/header.php'; ?>
 <div class="container">
 <table class="table">
   <thead>
@@ -8,6 +7,7 @@
         <th scope="col">Modele</th>
         <th scope="col">Prix HT</th>
         <th scope="col">Prix TTC</th>
+        <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +20,16 @@
   </tbody>
 </table>
 </div>
-<?php include 'includes/footer.php'; ?>
-</body>
-</html>
+
+<?php
+
+    if (!empty($_GET['id'])) {
+        if (isset($_SESSION['cart'][$_GET['id']])){
+            $_SESSION['cart'][$_GET['id']]++;
+        } else {
+            $_SESSION['cart'][$_GET['id']] = 1;
+        }
+        header("Location: index.php?page=list");
+    }
+
+?>

@@ -23,14 +23,43 @@
           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="list.php">Liste</a>
+          <a class="nav-link" href="index.php?page=list">Liste</a>
         </li>
-      <li class="nav-item">
-          <a class="nav-link" href="login.php">Connection</a>
-      </li>
-        <li class="nav-item">
-          <a class="nav-link" href="logout.php">Deconnection</a>
-        </li>
+
+          <?php
+
+          if (!empty($_SESSION['cart']))
+              echo  '<li class="nav-item">
+                       <a class="nav-link" href="index.php?page=cart">Panier</a>
+                       </li>'
+          ?>
+
+          <?php
+
+            if (empty($_SESSION['login'])) {
+
+                echo '<li class="nav-item">
+                    <a class="nav-link" href="index.php?page=login">Connection</a>
+                 </li>';
+
+            }
+
+            ?>
+
+
+          <?php
+
+            if (!empty($_SESSION['login'])) {
+
+               echo '<li class="nav-item">
+                  <a class="nav-link" href="index.php?page=logout">Deconnection</a>
+                </li>';
+
+            }
+
+          ?>
+
+
       </ul>
         <?php
             if($_SESSION) {

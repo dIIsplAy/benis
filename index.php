@@ -1,30 +1,14 @@
+<?php
+spl_autoload_register(function ($class) {
+    require_once "classes/$class.php";
+});
 
-    <?php
+include 'includes/header.php';
 
-        include 'includes/header.php';
+if (!empty($_GET['page'])) {
+    include 'pages/' . $_GET['page'] . '.php';
+} else {
+    include 'pages/home.php';
+}
 
-        if (!empty($_GET['connected']) && $_GET['connected'] == 1) {
-            echo "<div>Vous êtes connecté</div>";
-        } elseif (!empty($_GET['connected']) && $_GET['connected'] == 0) {
-            echo  "<div>'Identifiants incorrects, veuillez résessayer'</div>";
-        }
-
-    ?>
-
-    <div class="row p-5">
-
-    <?php require 'data.php'; ?>
-    <?php require 'functions.php'; ?>
-    <?php
-        for ($i = 0; $i < 3; $i++)
-           echo generateCard($cars[$i]);
-    ?>
-
-    </div>
-
-
-
-
-
-    <?php include 'includes/footer.php'; ?>
-
+include 'includes/footer.php';
